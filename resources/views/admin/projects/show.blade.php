@@ -17,6 +17,15 @@
         <div class="fs-3"><strong>Description: </strong>{{ $project->description }}</div>
     </div>
 
+    <div class="container p-3 d-flex gap-1">
+      <p><strong>Technology used: </strong></p>
+      <ul class="d-flex gap-2 list-unstyled">
+        @foreach ($project->technologies as $technology)
+            <li>{{ $technology->name }}</li>
+        @endforeach
+      </ul>
+    </div>
+
     <div class="modal" id="modal" tabindex="-1">
         <div class="modal-dialog">
           <div class="modal-content">
