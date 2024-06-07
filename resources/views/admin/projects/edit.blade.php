@@ -31,6 +31,23 @@
     </div>
 
 
+    <div class="form-group">
+      <h5>Select the technologies</h5>
+
+      <div class="d-flex gap-2 mb-3">
+        @foreach ($technologies as $technology)
+
+          <div class="form-check">
+            <input @checked( in_array($technology->id, old('technologies',$project->technologies->pluck('id')->all())) ) name="technologies[]" class="form-check-input" type="checkbox" value="{{ $technology->id }}" id="technology-{{$technology->id}}">
+            <label class="form-check-label" for="technology-{{$technology->id}}">
+              {{ $technology->name }}
+            </label>
+          </div>
+            
+        @endforeach
+    </div>
+
+
     <div class="mb-3">
       <label for="link" class="form-label"><strong>Link of the project</strong></label>
       <input type="text" name="link" class="form-control" id="link" placeholder="Write the link to the repository" value="{{old('link', $project->link)}}">
